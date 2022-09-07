@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_facebook_ads__basic_ad_tmp')),
+                source_columns=adapter.get_columns_in_relation(ref('stg_facebook_ads__basic_ad_region_tmp')),
                 staging_columns=get_basic_ad_region_columns()
             )
         }}

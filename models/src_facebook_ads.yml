@@ -188,7 +188,7 @@ sources:
 
       - name: basic_ad_platform
         description: Each record represents the daily performance of an ad in Facebook, broken out by the platform (Facebook or Instagram).
-        identifier: "{{ var('facebook_ads_basic_ad_identifier', 'basic_ad') }}"
+        identifier: "{{ var('facebook_ads_basic_ad_identifier', 'basic_ad_platform') }}"
         columns:
           - name: ad_id
             description: The ID of the ad the report relates to.
@@ -221,7 +221,7 @@ sources:
 
       - name: basic_ad_region
         description: Each record represents the daily performance of an ad in Facebook, broken out by the platform (Facebook or Instagram).
-        identifier: "{{ var('facebook_ads_basic_ad_identifier', 'basic_ad') }}"
+        identifier: "{{ var('facebook_ads_basic_ad_identifier', 'basic_ad_region') }}"
         columns:
           - name: ad_id
             description: The ID of the ad the report relates to.
