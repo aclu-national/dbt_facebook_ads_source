@@ -4,17 +4,17 @@ sources:
   - name: facebook_ads
     schema: "{{ var('facebook_ads_schema', 'facebook_ads') }}"
     database: "{% if target.type != 'spark'%}{{ var('facebook_ads_database', target.database) }}{% endif %}"
-    
+
     loader: Fivetran
     loaded_at_field: _fivetran_synced
-    
-    freshness: 
+
+    freshness:
       warn_after: {count: 48, period: hour}
       error_after: {count: 168, period: hour}
 
     config:
       enabled: "{{ var('ad_reporting__facebook_ads_enabled', true) }}"
-      
+
     tables:
       - name: account_history
         description: Each record in this table reflects a version of a Facebook ad account.
@@ -159,7 +159,7 @@ sources:
             description: Ad account ID for the account this ad creative belongs to.
           - name: name
             description: Name of this ad creative as seen in the ad account's library.
-          - name: url_tags        
+          - name: url_tags
             description: A set of query string parameters which will replace or be appended to urls clicked from page post ads, message of the post, and canvas app install creatives only.
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
@@ -185,3 +185,69 @@ sources:
             description: Link of the template app for android
           - name: template_app_link_spec_iphone
             description: Link of the template app for iphone
+
+      - name: basic_ad_platform
+        description: Each record represents the daily performance of an ad in Facebook, broken out by the platform (Facebook or Instagram).
+        identifier: "{{ var('facebook_ads_basic_ad_identifier', 'basic_ad') }}"
+        columns:
+          - name: ad_id
+            description: The ID of the ad the report relates to.
+          - name: ad_name
+            description: Name of the ad the report relates to.
+          - name: adset_name
+            description: Name of the ad set the report relates to.
+          - name: date
+            description: The date of the reported performance.
+          - name: account_id
+            description: The ID of the ad account that this ad belongs to.
+          - name: account_name
+            description: Name of the account that this ad belongs to.
+          - name: campaign_id
+            description: The ID of the campaign the ad belongs to.
+          - name: campaign_name
+            description: Name of the campaign the ad belongs to.
+          - name: publisher_platform
+            description: The platform the ad was published on, either 'facebook' or 'instagram'.
+          - name: impressions
+            description: The number of impressions the ad had on the given day.
+          - name: inline_link_clicks
+            description: The number of clicks the ad had on the given day.
+          - name: spend
+            description: The spend on the ad in the given day.
+          - name: reach
+            description: The number of people who saw any content from your Page or about your Page. This metric is estimated.
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+
+      - name: basic_ad_region
+        description: Each record represents the daily performance of an ad in Facebook, broken out by the platform (Facebook or Instagram).
+        identifier: "{{ var('facebook_ads_basic_ad_identifier', 'basic_ad') }}"
+        columns:
+          - name: ad_id
+            description: The ID of the ad the report relates to.
+          - name: ad_name
+            description: Name of the ad the report relates to.
+          - name: adset_name
+            description: Name of the ad set the report relates to.
+          - name: date
+            description: The date of the reported performance.
+          - name: account_id
+            description: The ID of the ad account that this ad belongs to.
+          - name: account_name
+            description: Name of the account that this ad belongs to.
+          - name: campaign_id
+            description: The ID of the campaign the ad belongs to.
+          - name: campaign_name
+            description: Name of the campaign the ad belongs to.
+          - name: region
+            description: The region the ad was served in. For US regions this is the full state name (e.g. 'Alaska' or 'Alabama').
+          - name: impressions
+            description: The number of impressions the ad had on the given day.
+          - name: inline_link_clicks
+            description: The number of clicks the ad had on the given day.
+          - name: spend
+            description: The spend on the ad in the given day.
+          - name: reach
+            description: The number of people who saw any content from your Page or about your Page. This metric is estimated.
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
