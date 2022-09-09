@@ -5,7 +5,7 @@ require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 models:
   facebook_ads_source:
-    +schema: facebook_ads_source
+    schema: dw_marketing_sources
     +materialized: table
     tmp:
       +materialized: view
