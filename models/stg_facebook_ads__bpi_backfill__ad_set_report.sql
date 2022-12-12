@@ -36,7 +36,7 @@ final as (
         null as budget_remaining,
         link_clicks as clicks,
         impressions,
-        amount_spend_usd as spend
+        amount_spent_usd as spend
 
         {{ fivetran_utils.fill_pass_through_columns('facebook_ads__basic_ad_passthrough_metrics') }}
     from fields

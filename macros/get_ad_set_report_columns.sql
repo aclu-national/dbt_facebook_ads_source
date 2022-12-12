@@ -10,7 +10,7 @@
     {"name": "day", "datatype": "date"},
     {"name": "impressions", "datatype": dbt_utils.type_int()},
     {"name": "link_clicks", "datatype": dbt_utils.type_int()},
-    {"name": "amount_spend_usd", "datatype": dbt_utils.type_float()}
+    {"name": "amount_spent_usd", "datatype": dbt_utils.type_float()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('facebook_ads__basic_ad_passthrough_metrics')) }}
