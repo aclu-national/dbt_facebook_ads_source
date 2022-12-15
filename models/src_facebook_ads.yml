@@ -218,7 +218,6 @@ sources:
             description: The number of people who saw any content from your Page or about your Page. This metric is estimated.
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
-
       - name: basic_ad_region
         description: Each record represents the daily performance of an ad in Facebook, broken out by the platform (Facebook or Instagram).
         identifier: "{{ var('facebook_ads_basic_ad_identifier', 'basic_ad_region') }}"
@@ -251,3 +250,26 @@ sources:
             description: The number of people who saw any content from your Page or about your Page. This metric is estimated.
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
+      - name: bpi_backfill__ad_set_report
+        description: A static, custom report from defunct BPI-owned ads account.
+        columns:
+        - name: day
+          description: The date of the performance.
+        - name: account_id
+          description: The ID of the related account.
+        - name: account_name
+          description: The name of the related account.
+        - name: campaign_id
+          description: The ID of the related campaign.
+        - name: campaign_name
+          description: The name of the related campaign.
+        - name: ad_set_id
+          description: The ID of the related ad set.
+        - name: ad_set_name
+          description: The name of the related ad set.
+        - name: inline_clicks
+          description: The number of clicks the ad had on the given day.
+        - name: impressions
+          description: The number of impressions the ad had on the given day.
+        - name: amount_spend_usd
+          description: The spend on the ad in the given day.
