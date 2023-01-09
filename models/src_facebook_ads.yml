@@ -273,3 +273,43 @@ sources:
           description: The number of impressions the ad had on the given day.
         - name: amount_spend_usd
           description: The spend on the ad in the given day.
+      - name: bpi_backfill__ad_set_region_report
+        description: A static, custom report from defunct BPI-owned ads account.
+        columns:
+        - name: day
+          description: The date of the performance.
+        - name: campaign_name
+          description: The name of the related campaign.
+        - name: ad_set_name
+          description: The name of the related ad set.
+        - name: region
+          description: The region (state) where the related ad set was served. 
+        - name: impressions
+          description: The number of impressions the ad had on the given day.
+        - name: amount_spend_usd
+          description: The spend on the ad in the given day.
+        - name: attribution_setting 
+        - name: starts 
+          description: The start date when the ad set was served. 
+        - name: ends 
+          description: The end date when the ad set was served. 
+      - name: bpi_backfill__ad_set_platform_report
+        description: A static, custom report from defunct BPI-owned ads account.
+        columns:
+        - name: day
+          description: The date of the performance.
+        - name: campaign_name
+          description: The name of the related campaign.
+        - name: ad_set_name
+          description: The name of the related ad set.
+        - name: platform
+          description: The platform (Facebook or Instagram) through which the related ad set was served. 
+        - name: impressions
+          description: The number of impressions the ad had on the given day.
+        - name: amount_spend_usd
+          description: The spend on the ad in the given day.
+        - name: attribution_setting 
+        - name: starts 
+          description: The start date when the ad set was served. 
+        - name: ends 
+          description: The end date when the ad set was served. 
