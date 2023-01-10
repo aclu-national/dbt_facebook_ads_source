@@ -21,5 +21,7 @@ vars:
     basic_ad_platform: "{{ source('facebook_ads','basic_ad_platform') }}"
     basic_ad_region: "{{ source('facebook_ads','basic_ad_region') }}"
     bpi_backfill__ad_set_report: "{{ source('facebook_ads', 'bpi_backfill__ad_set_report') }}"
+    bpi_backfill__ad_set_region_report: "{{ source('facebook_ads', 'bpi_backfill__ad_set_region_report') }}"
+    bpi_backfill__ad_set_platform_report: "{{ source('facebook_ads', 'bpi_backfill__ad_set_platform_report') }}"
 
   facebook_ads__basic_ad_passthrough_metrics: []
