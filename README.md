@@ -3,26 +3,21 @@
         href="https://github.com/fivetran/dbt_facebook_ads_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
-        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.0.0_<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
-    <a alt="Fivetran Quickstart Compatible"
-        href="https://fivetran.com/docs/transformations/dbt/quickstart">
-        <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
 # Facebook Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_facebook_ads_source/))
 # 📣 What does this dbt package do?
-<!--section="facebook_ads_source_model"-->
 - Materializes [Facebook Ads staging tables](https://fivetran.github.io/dbt_facebook_ads_source/#!/overview/facebook_ads_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/facebook-ads#schemainformation). These staging tables clean, test, and prepare your facebook_ads data from [Fivetran's connector](https://fivetran.com/docs/applications/facebook-ads) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Facebook Ads data through the [dbt docs site](https://fivetran.github.io/dbt_facebook_ads_source/).
 - These tables are designed to work simultaneously with our [Facebook Ads transformation package](https://github.com/fivetran/dbt_facebook_ads).
-<!--section-end-->
 
 # 🎯 How do I use the dbt package?
 ## Step 1: Prerequisites
@@ -46,13 +41,13 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-## Step 2: Install the package (skip if also using the `facebook_ads` transformation package)
+## Step 2: Install the package
 Include the following facebook_ads_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
   - package: fivetran/facebook_ads_source
-    version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.5.0", "<0.6.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `facebook_ads` schema. If this is not where your Facebook Ads data is (for example, if your facebook_ads schema is named `facebook_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -111,13 +106,10 @@ This dbt package is dependent on the following dbt packages. Please be aware tha
 ```yml
 packages:
     - package: fivetran/fivetran_utils
-      version: [">=0.4.0", "<0.5.0"]
+      version: [">=0.3.0", "<0.4.0"]
 
     - package: dbt-labs/dbt_utils
-      version: [">=1.0.0", "<2.0.0"]
-
-    - package: dbt-labs/spark_utils
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=0.8.0", "<0.9.0"]
 ```
           
 # 🙌 How is this package maintained and can I contribute?
@@ -132,4 +124,4 @@ We highly encourage and welcome contributions to this package. Check out [this d
 # 🏪 Are there any resources available?
 - If you have questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_facebook_ads_source/issues/new/choose) section to find the right avenue of support for you.
 - If you would like to provide feedback to the dbt package team at Fivetran or would like to request a new dbt package, fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
-- Have questions or want to be part of the community discourse? Create a post in the [Fivetran community](https://community.fivetran.com/t5/user-group-for-dbt/gh-p/dbt-user-group) and our team along with the community can join in on the discussion!
+- Have questions or want to just say hi? Book a time during our office hours [on Calendly](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or email us at solutions@fivetran.com.
